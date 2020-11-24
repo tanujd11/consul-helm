@@ -141,6 +141,7 @@ jobs:
             do
               if ! gotestsum --no-summary=all --jsonfile=jsonfile-${pkg////-} -- $pkg -p 1 -timeout 30m -failfast \
                     -enable-enterprise \
+                    -enable-pod-security-policies \
                     -enable-multi-cluster \
                     -kubeconfig="$primary_kubeconfig" \
                     -secondary-kubeconfig="$secondary_kubeconfig" \

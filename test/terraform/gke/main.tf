@@ -21,6 +21,10 @@ resource "google_container_cluster" "cluster" {
   location           = var.zone
   min_master_version = data.google_container_engine_versions.main.latest_master_version
   node_version       = data.google_container_engine_versions.main.latest_master_version
+
+  pod_security_policy_config {
+    enabled = true
+  }
 }
 
 resource "null_resource" "kubectl" {
